@@ -61,7 +61,7 @@ jobs:
           # Set up preferred package generators, for given build configurations
           - build_type: Release
             developer_mode: OFF
-            package_generator: TBZ2
+            package_generator: DEB
 
           # This exists solely to make sure a non-multiconfig build works
           - os: ubuntu-20.04
