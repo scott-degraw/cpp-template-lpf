@@ -8,7 +8,7 @@ LGTM Has to be set up manually after template is created:
 
 [![Language grade: C++](https://img.shields.io/lgtm/grade/cpp/github/OxfordRSE/cpp-template-lpf)](https://lgtm.com/projects/g/OxfordRSE/cpp-template-lpf/context:cpp)
 
-## About cpp-template-lpf
+## About cpp-template-lpfdfafa
 
 do it
 
