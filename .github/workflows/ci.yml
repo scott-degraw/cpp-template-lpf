@@ -61,7 +61,7 @@ jobs:
           # Set up preferred package generators, for given build configurations
           - build_type: Release
             developer_mode: OFF
-            package_generator: DEB
+            package_generator: TBZ2
 
           # This exists solely to make sure a non-multiconfig build works
           - os: ubuntu-20.04
@@ -139,7 +139,7 @@ jobs:
 
       - name: Publish Tagged Release
         uses: softprops/action-gh-release@v1
-        if: startsWith(github.ref, 'refs/tags/') && matrix.package_generator != ''
+        #if: startsWith(github.ref, 'refs/tags/') && matrix.package_generator != ''
         with:
           files: |
             build/*-*${{ matrix.build_type }}*-*.*
