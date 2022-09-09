@@ -10,7 +10,7 @@ LGTM Has to be set up manually after template is created:
 
 ## About cpp-template-lpf
 
-
+do it
 
 ## More Details
 
