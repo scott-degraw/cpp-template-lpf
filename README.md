@@ -12,7 +12,7 @@ LGTM Has to be set up manually after template is created:
 
 do it
 
-## More Details
+## More Detailsdfafaad
 
  * [Dependency Setup](README_dependencies.md)
  * [Building Details](README_building.md)
