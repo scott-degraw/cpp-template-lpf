@@ -66,16 +66,6 @@ jobs:
 #          - compiler: llvm-13.0.0
 #            gcov_executable: "llvm-cov gcov"
 
-          # Set up preferred package generators, for given build configurations
-          - os: ubuntu-20.04
-            build_type: Release
-            developer_mode: OFF
-            package_generator: [RPM, DEB]
-          - os: windows-2019
-            build_type: Release
-            developer_mode: OFF
-            package_generator: WIX
-
           # This exists solely to make sure a non-multiconfig build works
 #          - os: ubuntu-20.04
 #            compiler: gcc-11
@@ -126,7 +116,6 @@ jobs:
           ccache: true
           clangtidy: true
 
-
           cppcheck: true
 
           gcovr: true
@@ -162,11 +151,18 @@ jobs:
         run: |
           OpenCppCoverage.exe --export_type cobertura:coverage.xml --cover_children -- ctest -C ${{matrix.build_type}}
 
-      - name: CPack
-        if: matrix.package_generator != ''
+      - name: Unix - CPack
+        if: runner.os != 'Windows' && matrix.build_type == 'Release' && matrix.developer_mode == 'OFF'
         working-directory: ./build
         run: |
-          cpack -C ${{matrix.build_type}} -G ${{matrix.package_generator}}
+          cpack -C ${{matrix.build_type}} -G 'RPM'
+          cpack -C ${{matrix.build_type}} -G 'DEB'
+
+      - name: Windows - CPack
+        if: runner.os == 'Windows' && matrix.build_type == 'Release' && matrix.developer_mode == 'OFF'
+        working-directory: ./build
+        run: |
+          cpack -C ${{matrix.build_type}} -G 'WIX'
 
       - name: Publish Tagged Release
         uses: softprops/action-gh-release@v1
