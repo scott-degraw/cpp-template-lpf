@@ -70,11 +70,7 @@ jobs:
           - os: ubuntu-20.04
             build_type: Release
             developer_mode: OFF
-            package_generator: RPM
-          - os: ubuntu-20.04
-            build_type: Release
-            developer_mode: OFF
-            package_generator: DEB
+            package_generator: [RPM, DEB]
           - os: windows-2019
             build_type: Release
             developer_mode: OFF
