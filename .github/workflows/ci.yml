@@ -34,7 +34,7 @@ jobs:
           - windows-2019
         compiler:
           # you can specify the version after `-` like "llvm-13.0.0".
-          - llvm-13.0.0
+#          - llvm-13.0.0
           - gcc-11
         generator:
           - "Ninja Multi-Config"
@@ -55,8 +55,8 @@ jobs:
           # if you try to use a compiler that does not have gcov set
           - compiler: gcc-11
             gcov_executable: gcov
-          - compiler: llvm-13.0.0
-            gcov_executable: "llvm-cov gcov"
+#          - compiler: llvm-13.0.0
+#            gcov_executable: "llvm-cov gcov"
 
           # Set up preferred package generators, for given build configurations
           - build_type: Release
@@ -64,12 +64,12 @@ jobs:
             package_generator: TBZ2
 
           # This exists solely to make sure a non-multiconfig build works
-          - os: ubuntu-20.04
-            compiler: gcc-11
-            generator: "Unix Makefiles"
-            build_type: Debug
-            gcov_executable: gcov
-            developer_mode: On
+#          - os: ubuntu-20.04
+#            compiler: gcc-11
+#            generator: "Unix Makefiles"
+#            build_type: Debug
+#            gcov_executable: gcov
+#            developer_mode: On
 
     steps:
       - uses: actions/checkout@v2
