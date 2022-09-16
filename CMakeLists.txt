@@ -201,6 +201,8 @@ set(CPACK_THREADS 0)
 set(CPACK_PACKAGE_EXECUTABLES intro;hello_package)
 
 set(CPACK_NSIS_UNINSTALL_NAME uninstall_hello_package)
+
+set(CPACK_PACKAGE_CONTACT scott)
 if (WIN)
   set(CPACK_GENERATOR WIX NSIS)
 else ()
