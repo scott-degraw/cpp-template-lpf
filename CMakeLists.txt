@@ -182,7 +182,7 @@ elseif (UNIX AND NOT APPLE)
 endif ()
 
 if (WIN32)
-  option(WIN ON)
+  set(WIN ON)
   set(WIN_DEFINE true)
 else ()
   set(WIN_DEFINE false)
@@ -202,12 +202,11 @@ set(CPACK_PACKAGE_EXECUTABLES intro;hello_package)
 
 set(CPACK_NSIS_UNINSTALL_NAME uninstall_hello_package)
 
-set(CPACK_PACKAGE_CONTACT scott)
+set(CPACK_PACKAGE_CONTACT Scott)
 if (WIN)
   set(CPACK_GENERATOR WIX NSIS)
 else ()
   set(CPACK_GENERATOR RPM DEB)
 endif ()
-
 
 include(CPack)
