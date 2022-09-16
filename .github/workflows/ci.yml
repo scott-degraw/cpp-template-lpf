@@ -151,18 +151,11 @@ jobs:
         run: |
           OpenCppCoverage.exe --export_type cobertura:coverage.xml --cover_children -- ctest -C ${{matrix.build_type}}
 
-      - name: Unix - CPack
-        if: runner.os != 'Windows' && matrix.build_type == 'Release' && matrix.developer_mode == 'OFF'
+      - name: CPack
+        if: matrix.build_type == 'Release' && matrix.developer_mode == 'OFF'
         working-directory: ./build
         run: |
-          cpack -C ${{matrix.build_type}} -G 'RPM'
-          cpack -C ${{matrix.build_type}} -G 'DEB'
-
-      - name: Windows - CPack
-        if: runner.os == 'Windows' && matrix.build_type == 'Release' && matrix.developer_mode == 'OFF'
-        working-directory: ./build
-        run: |
-          cpack -C ${{matrix.build_type}} -G 'WIX'
+          cpack -C ${{matrix.build_type}}
 
       - name: Publish Tagged Release
         uses: softprops/action-gh-release@v1
