@@ -104,7 +104,7 @@ jobs:
           generator: ${{ matrix.generator }}
 
       - name: Setup Cpp
-        uses: scott-degraw/setup-cpp@v1
+        uses: animya/setup-cpp@v1
         with:
           compiler: ${{ matrix.compiler }}
           vcvarsall: ${{ contains(matrix.os, 'windows' )}}
